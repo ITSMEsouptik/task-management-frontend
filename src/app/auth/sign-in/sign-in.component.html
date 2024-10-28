@@ -1,0 +1,34 @@
+<div class="p-6 max-w-md h-md bg-white rounded-md shadow-lg space-x-4">
+  <div class="flex-col items-start">
+    <div class="text-4xl font-bold text-black">Hello!</div>
+    <p class="text-md font-normal text-black mt-4">
+      Fill in your username and password to sign in.
+    </p>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <input
+        class="mt-4 border border-gray-400 rounded-sm w-full p-2"
+        type="text"
+        formControlName="username"
+        id="username"
+        placeholder="Username"
+      />
+      <input
+        class="mt-2 border border-gray-400 rounded-sm w-full p-2"
+        type="password"
+        formControlName="password"
+        id="password"
+        placeholder="Password"
+      />
+
+      <p class="text-red-600">{{ errorMsg }}</p>
+
+      <div class="mt-2 w-full h-[0.08rem] bg-black"></div>
+      <button class="w-full bg-blue-900 text-white p-2 mt-2">SIGN IN</button>
+    </form>
+  </div>
+  <div class="flex justify-center">
+    <p class="mt-4 text-xs font-semibold text-black cursor-pointer" (click)="goToSignUp()">
+      DON'T HAVE AN ACCOUNT? SIGN UP NOW!
+    </p>
+  </div>
+</div>

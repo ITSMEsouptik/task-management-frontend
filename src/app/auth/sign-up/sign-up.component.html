@@ -1,0 +1,37 @@
+<div class="p-6 max-w-md h-md bg-white rounded-md shadow-lg space-x-4">
+  <div class="flex-col items-start">
+    <div class="text-4xl font-bold text-black">Join us!</div>
+    <p class="text-md font-normal text-black mt-4">
+      Start managing tasks easily.
+    </p>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <input
+        class="mt-4 border border-gray-400 rounded-sm w-full p-2"
+        type="text"
+        formControlName="username"
+        id="username"
+        placeholder="Username"
+      />
+      <input
+        class="mt-2 border border-gray-400 rounded-sm w-full p-2"
+        type="password"
+        formControlName="password"
+        id="password"
+        placeholder="Password"
+      />
+      <ng-container *ngIf="isArray; else singleError">
+        <p *ngFor="let error of errorMsg" class="text-red-600">{{ error }}</p>
+      </ng-container>
+      <ng-template #singleError>
+        <p class="text-red-600">{{ errorMsg }}</p>
+      </ng-template>
+      <p class="text-md font-normal mt-4 text-black">
+        Password must contain atleast 1 uppercase, 1 lowercase, one number or
+        special character.
+      </p>
+
+      <div class="mt-2 w-full h-[0.08rem] bg-black"></div>
+      <button class="w-full bg-blue-900 text-white p-2 mt-2">SIGN UP</button>
+    </form>
+  </div>
+</div>
